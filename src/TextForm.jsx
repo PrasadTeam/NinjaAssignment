@@ -1,0 +1,71 @@
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+
+import TextFieldControl from './TextFieldControl.jsx';
+
+class TextForm extends Component
+{
+
+   state = { name:'Person', 
+             fields : [
+               { name: 'FirstName', value:'1'}, 
+               { name: 'SecondName', value:'2'},
+               { name: 'Age', value:'3'},
+               { name: 'Address Line1:', value:'4'}
+               ]
+           };
+
+    constructor(props)
+    {
+          super(props);
+          this.state.name = props.name;
+    }
+
+    onSubmitForm = (event) => 
+    {
+      
+      event.preventDefault();  
+      
+      let person = {FirstName: event.target.FirstName.value, SecondName: event.target.SecondName.value, Age: event.target.Age.value};
+
+      // console.log(person);
+      
+      alert(JSON.stringify(person));  
+      let res = fetch('http://localhost:9080/HelloBro', {
+        method: 'post',
+        body: JSON.stringify(person),
+        headers: {Accept: "application/json", 'Content-Type' : 'application/json','Access-Control-Allow-Origin': '*'}
+       }).then(response => {return response.json();}).then(data => this.setState(data));   //
+
+      
+      // console.log(name);
+      
+      
+    };
+
+    
+   render()
+   {
+
+   return (
+   <div>
+      <form onSubmit={this.onSubmitForm}>
+           <h1>{this.state.name}</h1>
+           {this.state.fields.map(
+             item => 
+             <div> <span>{item.value}:</span>
+             <TextFieldControl key ={item.value} name={item.name} value={item.value}/> 
+             </div>
+           )
+           }               
+           
+        <input type='submit' />
+      </form>
+   </div> 
+          );
+
+   }
+
+}
+
+export default TextForm;
