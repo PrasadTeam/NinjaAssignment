@@ -48,7 +48,7 @@ class IFADashBoard extends Component
             <th>Last Name </th>
             <th>DOB </th>
             <th>Date of Inception </th>
-            <th>Status </th>
+            <th>Status</th>
         </tr>
         {this.state.policies.map(
          policy => <Policy key={policy.policyNumber} policy={policy} />)
