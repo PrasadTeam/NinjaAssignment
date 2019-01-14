@@ -48,7 +48,7 @@ class IFADashBoard extends Component
             <th>Last Name </th>
             <th>DOB </th>
             <th>Date of Inception </th>
-            <th>Status </th>
+            <th>Status  </th>
         </tr>
         {this.state.policies.map(
          policy => <Policy key={policy.policyNumber} policy={policy} />)
@@ -64,8 +64,7 @@ class IFADashBoard extends Component
    {
       console.log("mounted");
 
-      // Handle Error
-
+      // Handle Error 
       let res = fetch('http://localhost:9080/fetchIFADetails', {
         method: 'post',
         body: JSON.stringify({'agentId' : this.props.agentId}),
