@@ -1,5 +1,5 @@
 module.exports = {
-  app: [{
+  apps: [{
     name  : "NinjaAssignment",
     script: "npm",
     args  : "start"
