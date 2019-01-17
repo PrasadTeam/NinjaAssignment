@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name  : "NinjaAssignment",
-    script: "npm",
+    script: "npm", 
     args  : "start"
   }]
 }
