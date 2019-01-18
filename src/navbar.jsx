@@ -7,7 +7,7 @@ class Navbar extends Component{
    {
      console.log(this.props); 
      return (<nav className="navbar navbra-light bg-light">
-       <a className="navbar-nav" href="#">Welcome {this.props.agentName}. Your Advisor Id is {this.props.agentId}</a>
+       <a className="navbar-nav" href="#">Welcome to Dashboard {this.props.agentName}. Your Advisor Id is {this.props.agentId}</a>
      </nav>
      )
    }
