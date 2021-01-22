@@ -43,7 +43,7 @@ class IFADashBoard extends Component
         <tbody>
       
         <tr> 
-            <th>Policy Id </th>
+            <th>PoLicy Id </th>
             <th>First Name </th>
             <th>Last Name </th>
             <th>DOB </th>
